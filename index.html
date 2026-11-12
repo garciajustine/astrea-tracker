@@ -1310,6 +1310,101 @@
     color: color-mix(in srgb, var(--name-accent) 55%, var(--text)) !important;
     font-weight: 700;
   }
+
+  /* ================= POKOPIA 2: Pokédex menu look ================= */
+  html[data-theme="pokopia"] body { --dex:#E2615D; --dex-dark:#C44B48; --dex-ring:#FFD83A; --soft:#EFEFEC; --ink:#4A4744; }
+  html[data-theme="pokopia"] body[data-tab="personal"] { --chk1:#BFE6A2; --chk2:#CDEDB3; }
+  html[data-theme="pokopia"] body[data-tab="shared"]   { --chk1:#B8E2F5; --chk2:#C9EAF8; }
+  html[data-theme="pokopia"] body[data-tab="wishlist"] { --chk1:#F8CBDB; --chk2:#FBD8E4; }
+  /* checkered grass page + wooden plank floor with grass tufts */
+  html[data-theme="pokopia"] body { background: repeating-conic-gradient(var(--chk1) 0 25%, var(--chk2) 0 50%) 0 0 / 34px 34px fixed !important; padding-bottom: 96px; }
+  html[data-theme="pokopia"] body::before { display: none; }
+  html[data-theme="pokopia"] body::after { height: 54px !important; border-top: 0 !important;
+    background: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2264%22 height=%2216%22 viewBox=%220 0 64 16%22%3E%3Cpath d=%22M0 16 C4 8 7 6 9 2 C10 7 12 9 14 6 C15 10 18 12 20 16Z M24 16 C27 10 30 9 31 4 C33 9 35 10 37 7 C38 12 41 13 43 16Z M46 16 C49 11 51 9 53 5 C55 10 57 11 59 8 C60 12 62 14 64 16Z%22 fill=%22%237CCB4E%22/%3E%3Cpath d=%22M0 16 C4 8 7 6 9 2 C10 7 12 9 14 6 C15 10 18 12 20 16 M24 16 C27 10 30 9 31 4 C33 9 35 10 37 7 C38 12 41 13 43 16 M46 16 C49 11 51 9 53 5 C55 10 57 11 59 8 C60 12 62 14 64 16%22 fill=%22none%22 stroke=%22%234E9B2E%22 stroke-width=%221.4%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E") 0 0 / 64px 16px repeat-x,
+      linear-gradient(rgba(255,255,255,.22), rgba(255,255,255,.22)) 0 16px / 100% 3px no-repeat,
+      repeating-linear-gradient(90deg, transparent 0 118px, rgba(80,45,15,.28) 118px 121px) 0 16px / 100% 100% no-repeat,
+      linear-gradient(180deg, transparent 0 14px, #C99260 14px, #B47C4A 100%) !important; }
+  html[data-theme="pokopia"] #reset-config { bottom: 64px !important; }
+  /* Ditto (human form) standing on the wooden floor, bottom-right, in front (taps pass through) */
+  html[data-theme="pokopia"] #app-content::before { content: ''; position: fixed; right: max(14px, calc(50% - 760px)); bottom: 18px; width: 150px; height: 190px; z-index: 20; pointer-events: none;
+    background:
+      url("assets/ditto-girl.png") center bottom 5px / 132px auto no-repeat,
+      radial-gradient(ellipse 50% 50% at 50% 50%, rgba(70,38,12,.45), rgba(70,38,12,0) 72%) center bottom 0 / 104px 14px no-repeat; }
+
+  /* tabs: soft round buttons, selected = yellow ring + triangle */
+  html[data-theme="pokopia"] .tab-btn { position: relative; background: var(--soft) !important; border: 0 !important; box-shadow: none !important; color: #6A6661 !important; border-radius: 999px; padding: 8px 20px; }
+  html[data-theme="pokopia"] .tab-btn.active { background: #FFFFFF !important; color: var(--ink) !important; box-shadow: 0 0 0 4px var(--dex-ring), 0 4px 10px rgba(0,0,0,.12) !important; }
+  html[data-theme="pokopia"] .tab-btn.active::after { content: ''; position: absolute; left: 50%; top: -15px; transform: translateX(-50%); border: 8px solid transparent; border-top: 10px solid #F5B82E; border-bottom: 0; }
+  html[data-theme="pokopia"] .tabs { padding-top: 14px; }
+
+  /* header = Pokédex device: coral frame, glossy teal lens, three lights */
+  html[data-theme="pokopia"] .topbar { background: linear-gradient(180deg, var(--dex) 0%, var(--dex-dark) 100%); border-radius: 28px; padding: 20px 24px; box-shadow: inset 0 2px 0 rgba(255,255,255,.25), 0 6px 0 rgba(0,0,0,.10); }
+  html[data-theme="pokopia"] h1::before { background: radial-gradient(circle at 34% 30%, #FFFFFF 0 11%, #A8F4F4 13%, #49D3DC 52%, #2BA9B7 100%) !important;
+    width: 48px !important; height: 48px !important; border-radius: 50%; border: 4px solid #FFFFFF; box-shadow: 0 2px 0 rgba(0,0,0,.15); flex-shrink: 0; }
+  html[data-theme="pokopia"] .topbar .eyebrow { background: transparent !important; border: 0 !important; padding: 0 !important; color: rgba(255,255,255,.92) !important; display: inline-flex; align-items: center; gap: 10px; }
+  html[data-theme="pokopia"] .topbar .eyebrow::before { content: ''; width: 54px; height: 14px; flex-shrink: 0;
+    background: radial-gradient(circle at 7px 7px, #F28B8B 0 5.5px, #FFFFFF 6px 7px, transparent 7.5px), radial-gradient(circle at 27px 7px, #F2D04A 0 5.5px, #FFFFFF 6px 7px, transparent 7.5px), radial-gradient(circle at 47px 7px, #6CCB5F 0 5.5px, #FFFFFF 6px 7px, transparent 7.5px); }
+  html[data-theme="pokopia"] .topbar select, html[data-theme="pokopia"] .topbar .wl-filter { background: #FFFFFF !important; border: 0 !important; border-radius: 999px !important; color: var(--ink) !important; }
+  html[data-theme="pokopia"] .topbar .btn-ghost { color: #FFFFFF !important; }
+  html[data-theme="pokopia"] .topbar .btn-ghost:hover { background: rgba(255,255,255,.18) !important; border-color: transparent !important; }
+
+  /* logo-style title: each letter its own colour with a white outline */
+  html[data-theme="pokopia"] h1 { color: #FFFFFF; letter-spacing: .01em; min-width: 0; }
+  html[data-theme="pokopia"] .pk-word { display: inline; white-space: normal; }
+  html[data-theme="pokopia"] .pk-l { -webkit-text-stroke: 7px #FFFFFF; paint-order: stroke fill; text-shadow: 0 4px 0 rgba(0,0,0,.14); }
+  html[data-theme="pokopia"] .pk-l:nth-child(6n+1) { color: #33AEE6; } html[data-theme="pokopia"] .pk-l:nth-child(6n+2) { color: #F7922E; } html[data-theme="pokopia"] .pk-l:nth-child(6n+3) { color: #9A68DF; }
+  html[data-theme="pokopia"] .pk-l:nth-child(6n+4) { color: #EE4C4C; } html[data-theme="pokopia"] .pk-l:nth-child(6n+5) { color: #56BC3C; } html[data-theme="pokopia"] .pk-l:nth-child(6n+6) { color: #F06D2B; }
+
+  /* white menu panels with a soft title bar */
+  html[data-theme="pokopia"] .stat, html[data-theme="pokopia"] .side-card, html[data-theme="pokopia"] .ledger, html[data-theme="pokopia"] .wl-list, html[data-theme="pokopia"] .wl-add, html[data-theme="pokopia"] .wl-filter { background: #FFFFFF !important; border: 0 !important; border-radius: 24px !important; box-shadow: 0 6px 0 rgba(0,0,0,.07) !important; }
+  html[data-theme="pokopia"] .side-card { padding: 0 16px 16px !important; overflow: hidden; }
+  html[data-theme="pokopia"] .side-card-title { margin: 0 -16px 14px !important; padding: 11px 16px !important; background: #F6F5F2; color: #6A6661 !important; justify-content: center;
+    font-family: 'Baloo 2', sans-serif; font-size: 17px !important; font-weight: 700 !important; letter-spacing: 0 !important; text-transform: none !important; }
+  html[data-theme="pokopia"] .side-card-title::before { display: none !important; }
+  html[data-theme="pokopia"] .ledger { border: 7px solid var(--dex) !important; }
+  html[data-theme="pokopia"] .ledger-head { background: #F6F5F2; }
+  /* Ditto peeking over the expense list (like the cat in Pink Kitty) */
+  html[data-theme="pokopia"] .main-col .ledger { margin-top: 40px !important; position: relative; }
+  html[data-theme="pokopia"] .main-col .ledger::before { display: block !important; content: '' !important; position: absolute; top: -52px; right: 34px; width: 90px; height: 52px;
+    background: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 90 52%22%3E%3Cpath d=%22M5 52 C3 40 4 28 9 22 C11 14 17 9 24 11 C29 4 38 3 45 7 C53 3 63 4 68 10 C75 9 82 13 83 21 C87 30 87 42 85 52Z%22 fill=%22%23C99AE8%22/%3E%3Cpath d=%22M5 52 C3 40 4 28 9 22 C11 14 17 9 24 11 C29 4 38 3 45 7 C53 3 63 4 68 10 C75 9 81 13 82 21 C85 30 84 42 82 52Z%22 fill=%22%23E5BCF8%22/%3E%3Cpath d=%22M10 24 C12 17 17 13 23 14 C27 9 33 7 38 8 C31 10 26 14 23 18 C18 17 13 19 10 24Z%22 fill=%22%23F3DCFC%22/%3E%3Ccircle cx=%2236%22 cy=%2225%22 r=%222.1%22 fill=%22%234B4550%22/%3E%3Ccircle cx=%2258%22 cy=%2225%22 r=%222.1%22 fill=%22%234B4550%22/%3E%3Cpath d=%22M30 32 Q47 39 64 32%22 fill=%22none%22 stroke=%22%23DC8F88%22 stroke-width=%223%22 stroke-linecap=%22round%22/%3E%3Cpath d=%22M30 32 Q31 32.6 32.5 33.2 M64 32 Q63 32.6 61.5 33.2%22 fill=%22none%22 stroke=%22%23B9645F%22 stroke-width=%223%22 stroke-linecap=%22round%22/%3E%3Cellipse cx=%2216%22 cy=%2248.5%22 rx=%229%22 ry=%226%22 fill=%22%23E5BCF8%22/%3E%3Cellipse cx=%2274%22 cy=%2248.5%22 rx=%229%22 ry=%226%22 fill=%22%23DDB0F4%22/%3E%3Cpath d=%22M8 50 C9 46 12 44 16 44%22 fill=%22none%22 stroke=%22%23F3DCFC%22 stroke-width=%222%22 stroke-linecap=%22round%22/%3E%3C/svg%3E") center bottom / contain no-repeat !important; pointer-events: none; z-index: 2; filter: drop-shadow(0 2px 2px rgba(110,70,140,.18)); }
+  html[data-theme="pokopia"] .ledger-head { border-radius: 17px 17px 0 0; }
+  /* coin-counter pill for the big total */
+  html[data-theme="pokopia"] .stat:first-child .stat-value { display: inline-flex; align-items: center; gap: 8px; background: #8E9BEA; color: #FFFFFF !important; border-radius: 999px; padding: 2px 16px 2px 6px; font-size: 22px !important; }
+  html[data-theme="pokopia"] .stat:first-child .stat-value::before { content: ''; width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle, #F8D45C 0 42%, #E7B227 44% 64%, #F8D45C 66%); box-shadow: inset 0 0 0 2px #FFFFFF; }
+
+  /* round checkboxes; checked = green with the yellow selection ring */
+  html[data-theme="pokopia"] .checkbox, html[data-theme="pokopia"] .wl-check { border-radius: 50% !important; background: var(--soft) !important; border: 0 !important; }
+  html[data-theme="pokopia"] .checkbox.checked, html[data-theme="pokopia"] .wl-check.on { background: #57BC3E !important; box-shadow: 0 0 0 3px var(--dex-ring) !important; }
+
+  /* pill buttons with a circled key letter, like "(A) Confirm" */
+  html[data-theme="pokopia"] .add-row button, html[data-theme="pokopia"] .wl-add-btn { background: #FFFFFF !important; color: var(--ink) !important; border: 2px solid #DAD8D3 !important; border-radius: 999px !important; box-shadow: 0 3px 0 rgba(0,0,0,.08) !important;
+    font-family: 'Baloo 2', sans-serif; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+  html[data-theme="pokopia"] .add-row button::before, html[data-theme="pokopia"] .wl-add-btn::before { content: 'A'; width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--ink); display: inline-flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 800; line-height: 1; flex-shrink: 0; background: none !important; }
+
+  @media (max-width: 640px) {
+    html[data-theme="pokopia"] .topbar { padding: 16px 16px; border-radius: 22px; }
+    html[data-theme="pokopia"] h1::before { width: 38px !important; height: 38px !important; border-width: 3px; }
+    html[data-theme="pokopia"] .pk-l { -webkit-text-stroke: 5px #FFFFFF; }
+    html[data-theme="pokopia"] h1 { font-size: 25px !important; line-height: 1.15; }
+    html[data-theme="pokopia"] .topbar .month-controls { flex-wrap: wrap; row-gap: 6px; }
+    html[data-theme="pokopia"] .topbar .month-controls select { flex: 1 1 100%; }
+    html[data-theme="pokopia"] .tab-btn { padding: 8px 6px; }
+    html[data-theme="pokopia"] .stat:first-child .stat-value { font-size: 15px !important; padding: 2px 10px 2px 4px; gap: 5px; }
+    html[data-theme="pokopia"] .stat:first-child .stat-value::before { width: 15px; height: 15px; }
+    html[data-theme="pokopia"] .ledger { border-width: 5px !important; }
+    html[data-theme="pokopia"] .main-col .ledger { margin-top: 34px !important; }
+    html[data-theme="pokopia"] #app-content::before { width: 92px; height: 116px; right: 8px; bottom: 18px; background-size: 80px auto, 66px 10px; background-position: center bottom 5px, center bottom 1px; }
+    html[data-theme="pokopia"] .main-col .ledger::before { width: 70px; height: 40px; top: -40px; right: 22px; }
+  }
+
+  /* ===== footer: save note + "Disconnect sheet" on the right (all themes) ===== */
+  .footer-actions { justify-content: flex-end; gap: 14px; flex-wrap: wrap; }
+  .footer-actions .footer-note { order: 2; text-align: right; }
+  html body #reset-config { position: fixed !important; display: block !important; margin: 0 !important; left: auto !important;
+    right: max(16px, env(safe-area-inset-right)) !important; bottom: max(16px, env(safe-area-inset-bottom)) !important; z-index: 5; }
+  html[data-theme="pokopia"] body #reset-config { bottom: 64px !important; right: auto !important; left: max(16px, env(safe-area-inset-left)) !important; background: rgba(255,255,255,.85) !important; border-radius: 999px; padding: 5px 12px; opacity: .85; color: #6A6661; }
+  @media (max-width: 640px) { html body #reset-config { display: none !important; } }
 </style>
 </head>
 <body data-tab="personal">
@@ -2625,6 +2720,32 @@ const PREFILL_URL = 'https://script.google.com/macros/s/AKfycbwGxudaj-sv5WLWtrS4
     document.getElementById('app-content').classList.add('ready');
     startApp();
   }
+})();
+
+// ===== Pokopia: logo-style coloured letters on page titles =====
+(function pokoLetters() {
+  const isPoko = () => document.documentElement.dataset.theme === 'pokopia';
+  function paint(h) {
+    const text = h.textContent;
+    if (isPoko()) {
+      if (h.querySelector('.pk-l') && h.dataset.pkText === text) return;
+      h.dataset.pkText = text;
+      const word = document.createElement('span'); word.className = 'pk-word';
+      for (const ch of text) {
+        if (ch === ' ') { word.appendChild(document.createTextNode(' ')); continue; }
+        const s = document.createElement('span'); s.className = 'pk-l'; s.textContent = ch; word.appendChild(s);
+      }
+      h.innerHTML = ''; h.appendChild(word);
+    } else if (h.querySelector('.pk-l')) { h.textContent = text; }
+  }
+  const all = () => document.querySelectorAll('#app-content h1').forEach(paint);
+  const app = document.getElementById('app-content');
+  const mo = new MutationObserver(() => { mo.disconnect(); all(); watch(); });
+  function watch() {
+    mo.observe(app, { childList: true, characterData: true, subtree: true });   // titles changing or created later
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  }
+  all(); watch();
 })();
 </script>
 </body>
