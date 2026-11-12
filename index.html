@@ -1302,6 +1302,14 @@
     html:is([data-theme="kh"],[data-theme="ff"]) .theme-pick { order: 1; width: auto; flex: 1 1 calc(100% - 46px); margin-left: 0 !important; }
     html:is([data-theme="kh"],[data-theme="ff"]) .tabs { row-gap: 6px; }
   }
+  /* ===== Expense name: slightly different shade, follows the theme ===== */
+  .row, .wl-item { --name-accent: var(--gold); }
+  #tab-shared .row { --name-accent: var(--violet); }
+  .wl-item { --name-accent: var(--teal); }
+  .name-cell > input[data-field="name"], .wl-name {
+    color: color-mix(in srgb, var(--name-accent) 55%, var(--text)) !important;
+    font-weight: 700;
+  }
 </style>
 </head>
 <body data-tab="personal">
