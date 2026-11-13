@@ -1297,10 +1297,10 @@
   html[data-theme="ff"] .sound-toggle + .theme-pick { margin-left: 8px; }
   html[data-theme="kh"] .sound-toggle + .theme-pick { margin-left: 8px; }
   @media (max-width: 640px) {
-    html:is([data-theme="kh"],[data-theme="ff"],[data-theme="zelda"]) .tabs .tab-btn { flex: 1 1 28%; }
-    html:is([data-theme="kh"],[data-theme="ff"],[data-theme="zelda"]) .sound-toggle { order: 2; width: 40px; height: 36px; margin-left: 0; flex: 0 0 40px; }
-    html:is([data-theme="kh"],[data-theme="ff"],[data-theme="zelda"]) .theme-pick { order: 1; width: auto; flex: 1 1 calc(100% - 46px); margin-left: 0 !important; }
-    html:is([data-theme="kh"],[data-theme="ff"],[data-theme="zelda"]) .tabs { row-gap: 6px; }
+    html:is([data-theme="kh"],[data-theme="ff"],[data-theme="zelda"],[data-theme="pokopia"]) .tabs .tab-btn { flex: 1 1 28%; }
+    html:is([data-theme="kh"],[data-theme="ff"],[data-theme="zelda"],[data-theme="pokopia"]) .sound-toggle { order: 2; width: 40px; height: 36px; margin-left: 0; flex: 0 0 40px; }
+    html:is([data-theme="kh"],[data-theme="ff"],[data-theme="zelda"],[data-theme="pokopia"]) .theme-pick { order: 1; width: auto; flex: 1 1 calc(100% - 46px); margin-left: 0 !important; }
+    html:is([data-theme="kh"],[data-theme="ff"],[data-theme="zelda"],[data-theme="pokopia"]) .tabs { row-gap: 6px; }
   }
   /* ===== Expense name: slightly different shade, follows the theme ===== */
   .row, .wl-item { --name-accent: var(--gold); }
@@ -1511,6 +1511,13 @@
     html[data-theme="zelda"] .main-col .ledger::before { width: 72px; height: 46px; top: -44px; right: 20px; }
     html[data-theme="zelda"] .stat:first-child .stat-value::before { width: 10px; height: 16px; }
   }
+
+  /* Pokopia sound toggle: soft round button like the menu */
+  html[data-theme="pokopia"] .sound-toggle { display: inline-flex; background: #FFFFFF; border: 0; border-radius: 999px; box-shadow: 0 3px 0 rgba(0,0,0,.08); }
+  html[data-theme="pokopia"] .sound-toggle + .theme-pick { margin-left: 8px; }
+
+  /* never allow sideways scrolling on small phones */
+  html { overflow-x: clip; }
 </style>
 </head>
 <body data-tab="personal">
@@ -2769,7 +2776,7 @@ function liveMoney(input) {
     return pools[name];
   }
   // which file each theme uses; a theme without a 'save' sound uses its 'select' sound for confirmations too
-  const SOUNDS = { kh: { select: 'kh-select', save: 'kh-save' }, ff: { select: 'ff-select' }, zelda: { select: 'zelda-select', save: 'zelda-save' } };
+  const SOUNDS = { kh: { select: 'kh-select', save: 'kh-save' }, ff: { select: 'ff-select' }, pokopia: { select: 'pokopia-select' }, zelda: { select: 'zelda-select', save: 'zelda-save' } };
   const themeSounds = () => SOUNDS[document.documentElement.dataset.theme];
   const active = () => !!themeSounds() && enabled;
   let last = 0;
